@@ -17,11 +17,9 @@ limitations under the License.
 package encoding
 
 import (
-	"os"
-
 	admissionv1beta1 "k8s.io/api/admission/v1beta1"
 
-	admissionregistrationv1alpha1 "k8s.io/api/admissionregistration/v1alpha1"
+	admissionregistrationv1 "k8s.io/api/admissionregistration/v1"
 	admissionregistrationv1beta1 "k8s.io/api/admissionregistration/v1beta1"
 
 	appsv1 "k8s.io/api/apps/v1"
@@ -39,7 +37,6 @@ import (
 
 	batchv1 "k8s.io/api/batch/v1"
 	batchv1beta1 "k8s.io/api/batch/v1beta1"
-	batchv2alpha1 "k8s.io/api/batch/v2alpha1"
 
 	certificatesv1beta1 "k8s.io/api/certificates/v1beta1"
 
@@ -61,20 +58,18 @@ import (
 
 	schedulingv1alpha1 "k8s.io/api/scheduling/v1alpha1"
 
-	settingsv1alpha1 "k8s.io/api/settings/v1alpha1"
-
 	storagev1 "k8s.io/api/storage/v1"
 	storagev1alpha1 "k8s.io/api/storage/v1alpha1"
 	storagev1beta1 "k8s.io/api/storage/v1beta1"
 
-	"k8s.io/apimachinery/pkg/apimachinery/registered"
+	//	"k8s.io/apimachinery/pkg/apimachinery/registered"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	runtime "k8s.io/apimachinery/pkg/runtime"
 	schema "k8s.io/apimachinery/pkg/runtime/schema"
 	serializer "k8s.io/apimachinery/pkg/runtime/serializer"
 )
 
-var Registry = registered.NewOrDie(os.Getenv("KUBE_API_VERSIONS"))
+// var Registry = registered.NewOrDie(os.Getenv("KUBE_API_VERSIONS"))
 var Scheme = runtime.NewScheme()
 var Codecs = serializer.NewCodecFactory(Scheme)
 var ParameterCodec = runtime.NewParameterCodec(Scheme)
@@ -87,21 +82,21 @@ func init() {
 // AddToScheme adds all types of this clientset into the given scheme. This allows composition
 // of clientsets, like in:
 //
-//   import (
-//     "k8s.io/client-go/kubernetes"
-//     clientsetscheme "k8s.io/client-go/kuberentes/scheme"
-//     aggregatorclientsetscheme "k8s.io/kube-aggregator/pkg/client/clientset_generated/clientset/scheme"
-//   )
+//	import (
+//	  "k8s.io/client-go/kubernetes"
+//	  clientsetscheme "k8s.io/client-go/kuberentes/scheme"
+//	  aggregatorclientsetscheme "k8s.io/kube-aggregator/pkg/client/clientset_generated/clientset/scheme"
+//	)
 //
-//   kclientset, _ := kubernetes.NewForConfig(c)
-//   aggregatorclientsetscheme.AddToScheme(clientsetscheme.Scheme)
+//	kclientset, _ := kubernetes.NewForConfig(c)
+//	aggregatorclientsetscheme.AddToScheme(clientsetscheme.Scheme)
 //
 // After this, RawExtensions in Kubernetes types will serialize kube-aggregator types
 // correctly.
 func AddToScheme(scheme *runtime.Scheme) {
 	admissionv1beta1.AddToScheme(scheme)
 
-	admissionregistrationv1alpha1.AddToScheme(scheme)
+	admissionregistrationv1.AddToScheme(scheme)
 	admissionregistrationv1beta1.AddToScheme(scheme)
 
 	appsv1.AddToScheme(scheme)
@@ -119,7 +114,6 @@ func AddToScheme(scheme *runtime.Scheme) {
 
 	batchv1.AddToScheme(scheme)
 	batchv1beta1.AddToScheme(scheme)
-	batchv2alpha1.AddToScheme(scheme)
 
 	certificatesv1beta1.AddToScheme(scheme)
 
@@ -140,8 +134,6 @@ func AddToScheme(scheme *runtime.Scheme) {
 	rbacv1beta1.AddToScheme(scheme)
 
 	schedulingv1alpha1.AddToScheme(scheme)
-
-	settingsv1alpha1.AddToScheme(scheme)
 
 	storagev1.AddToScheme(scheme)
 	storagev1alpha1.AddToScheme(scheme)
