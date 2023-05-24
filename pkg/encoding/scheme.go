@@ -108,6 +108,8 @@ import (
 
 	openshiftimagev1 "github.com/openshift/api/image/v1"
 
+	openshiftimageregistryv1 "github.com/openshift/api/imageregistry/v1"
+
 	openshiftkubecontrolplanev1 "github.com/openshift/api/kubecontrolplane/v1"
 
 	openshiftmachinev1 "github.com/openshift/api/machine/v1"
@@ -270,6 +272,8 @@ func AddToScheme(scheme *runtime.Scheme) {
 	openshifthelmv1beta1.Install(scheme)
 
 	openshiftimagev1.Install(scheme)
+
+	openshiftimageregistryv1.Install(scheme)
 
 	openshiftkubecontrolplanev1.Install(scheme) // This one might not be necessary
 
