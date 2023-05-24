@@ -87,6 +87,69 @@ import (
 	storagev1alpha1 "k8s.io/api/storage/v1alpha1"
 	storagev1beta1 "k8s.io/api/storage/v1beta1"
 
+	// OpenShift APIs
+
+	openshiftapiserverv1 "github.com/openshift/api/apiserver/v1"
+
+	openshiftappsv1 "github.com/openshift/api/apps/v1"
+
+	openshiftauthorizationv1 "github.com/openshift/api/authorization/v1"
+
+	openshiftbuildv1 "github.com/openshift/api/build/v1"
+
+	openshiftcloudnetworkv1 "github.com/openshift/api/cloudnetwork/v1"
+
+	openshiftconfigv1 "github.com/openshift/api/config/v1"
+
+	openshiftconsolev1 "github.com/openshift/api/console/v1"
+	openshiftconsolev1alpha1 "github.com/openshift/api/console/v1alpha1"
+
+	openshifthelmv1beta1 "github.com/openshift/api/helm/v1beta1"
+
+	openshiftimagev1 "github.com/openshift/api/image/v1"
+
+	openshiftkubecontrolplanev1 "github.com/openshift/api/kubecontrolplane/v1"
+
+	openshiftmachinev1 "github.com/openshift/api/machine/v1"
+	openshiftmachinev1beta1 "github.com/openshift/api/machine/v1beta1"
+
+	openshiftnetworkv1 "github.com/openshift/api/network/v1"
+
+	openshiftnetworkoperatorv1 "github.com/openshift/api/networkoperator/v1"
+
+	openshiftoauthv1 "github.com/openshift/api/oauth/v1"
+
+	openshiftopenshiftcontrolplanev1 "github.com/openshift/api/openshiftcontrolplane/v1"
+
+	openshiftoperatorv1 "github.com/openshift/api/operator/v1"
+	openshiftoperatorv1alpha1 "github.com/openshift/api/operator/v1alpha1"
+
+	openshiftoperatorcontrolplanev1alpha1 "github.com/openshift/api/operatorcontrolplane/v1alpha1"
+
+	openshiftoperatoringressv1 "github.com/openshift/api/operatoringress/v1"
+
+	openshiftosinv1 "github.com/openshift/api/osin/v1"
+
+	openshiftprojectv1 "github.com/openshift/api/project/v1"
+
+	openshiftquotav1 "github.com/openshift/api/quota/v1"
+
+	openshiftroutev1 "github.com/openshift/api/route/v1"
+
+	openshiftsamplesv1 "github.com/openshift/api/samples/v1"
+
+	openshiftsecurityv1 "github.com/openshift/api/security/v1"
+
+	openshiftsecurityinternalv1 "github.com/openshift/api/securityinternal/v1"
+
+	openshiftservicecertsignerv1alpha1 "github.com/openshift/api/servicecertsigner/v1alpha1"
+
+	openshiftsharedresourcev1alpha1 "github.com/openshift/api/sharedresource/v1alpha1"
+
+	openshifttemplatev1 "github.com/openshift/api/template/v1"
+
+	openshiftuserv1 "github.com/openshift/api/user/v1"
+
 	//	"k8s.io/apimachinery/pkg/apimachinery/registered"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	runtime "k8s.io/apimachinery/pkg/runtime"
@@ -188,4 +251,67 @@ func AddToScheme(scheme *runtime.Scheme) {
 	storagev1.AddToScheme(scheme)
 	storagev1alpha1.AddToScheme(scheme)
 	storagev1beta1.AddToScheme(scheme)
+
+	openshiftapiserverv1.AddToScheme(scheme)
+
+	openshiftappsv1.Install(scheme)
+
+	openshiftauthorizationv1.Install(scheme)
+
+	openshiftbuildv1.Install(scheme)
+
+	openshiftcloudnetworkv1.Install(scheme)
+
+	openshiftconfigv1.Install(scheme)
+
+	openshiftconsolev1.Install(scheme)
+	openshiftconsolev1alpha1.Install(scheme)
+
+	openshifthelmv1beta1.Install(scheme)
+
+	openshiftimagev1.Install(scheme)
+
+	openshiftkubecontrolplanev1.Install(scheme) // This one might not be necessary
+
+	// I am not adding the legacyconfig APIs at the moment, as I don't see them being necessary
+
+	openshiftmachinev1.Install(scheme)
+	openshiftmachinev1beta1.Install(scheme)
+
+	openshiftnetworkv1.Install(scheme)
+
+	openshiftnetworkoperatorv1.Install(scheme)
+
+	openshiftoauthv1.Install(scheme)
+
+	openshiftopenshiftcontrolplanev1.Install(scheme)
+
+	openshiftoperatorv1.Install(scheme)
+	openshiftoperatorv1alpha1.Install(scheme)
+
+	openshiftoperatorcontrolplanev1alpha1.Install(scheme)
+
+	openshiftoperatoringressv1.Install(scheme)
+
+	openshiftosinv1.Install(scheme)
+
+	openshiftprojectv1.Install(scheme)
+
+	openshiftquotav1.Install(scheme)
+
+	openshiftroutev1.Install(scheme)
+
+	openshiftsamplesv1.Install(scheme)
+
+	openshiftsecurityv1.Install(scheme)
+
+	openshiftsecurityinternalv1.Install(scheme)
+
+	openshiftservicecertsignerv1alpha1.Install(scheme)
+
+	openshiftsharedresourcev1alpha1.Install(scheme)
+
+	openshifttemplatev1.Install(scheme)
+
+	openshiftuserv1.Install(scheme)
 }
