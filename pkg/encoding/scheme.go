@@ -66,6 +66,7 @@ import (
 	imagepolicyv1alpha1 "k8s.io/api/imagepolicy/v1alpha1"
 
 	networkingv1 "k8s.io/api/networking/v1"
+	networkingv1alpha1 "k8s.io/api/networking/v1alpha1"
 	networkingv1beta1 "k8s.io/api/networking/v1beta1"
 
 	nodev1 "k8s.io/api/node/v1"
@@ -168,6 +169,7 @@ func AddToScheme(scheme *runtime.Scheme) {
 	imagepolicyv1alpha1.AddToScheme(scheme)
 
 	networkingv1.AddToScheme(scheme)
+	networkingv1alpha1.AddToScheme(scheme)
 	networkingv1beta1.AddToScheme(scheme)
 
 	nodev1alpha1.AddToScheme(scheme)
