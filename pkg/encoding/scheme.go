@@ -214,10 +214,10 @@ func AddToScheme(scheme *runtime.Scheme) {
 	coordinationv1beta1.AddToScheme(scheme)
 	coordinationv1.AddToScheme(scheme)
 
+	corev1.AddToScheme(scheme)
+
 	discoveryv1beta1.AddToScheme(scheme)
 	discoveryv1.AddToScheme(scheme)
-
-	corev1.AddToScheme(scheme)
 
 	eventsv1beta1.AddToScheme(scheme)
 	eventsv1.AddToScheme(scheme)
