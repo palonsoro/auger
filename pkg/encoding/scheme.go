@@ -115,6 +115,8 @@ import (
 	openshiftmachinev1 "github.com/openshift/api/machine/v1"
 	openshiftmachinev1beta1 "github.com/openshift/api/machine/v1beta1"
 
+	openshiftmonitoringv1alpha1 "github.com/openshift/api/monitoring/v1alpha1"
+
 	openshiftnetworkv1 "github.com/openshift/api/network/v1"
 
 	openshiftnetworkoperatorv1 "github.com/openshift/api/networkoperator/v1"
@@ -281,6 +283,8 @@ func AddToScheme(scheme *runtime.Scheme) {
 
 	openshiftmachinev1.Install(scheme)
 	openshiftmachinev1beta1.Install(scheme)
+
+	openshiftmonitoringv1alpha1.Install(scheme)
 
 	openshiftnetworkv1.Install(scheme)
 
