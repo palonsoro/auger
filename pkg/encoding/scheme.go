@@ -101,6 +101,7 @@ import (
 	openshiftcloudnetworkv1 "github.com/openshift/api/cloudnetwork/v1"
 
 	openshiftconfigv1 "github.com/openshift/api/config/v1"
+	openshiftconfigv1alpha1 "github.com/openshift/api/config/v1alpha1"
 
 	openshiftconsolev1 "github.com/openshift/api/console/v1"
 	openshiftconsolev1alpha1 "github.com/openshift/api/console/v1alpha1"
@@ -114,6 +115,7 @@ import (
 	openshiftkubecontrolplanev1 "github.com/openshift/api/kubecontrolplane/v1"
 
 	openshiftmachinev1 "github.com/openshift/api/machine/v1"
+	openshiftmachinev1alpha1 "github.com/openshift/api/machine/v1alpha1"
 	openshiftmachinev1beta1 "github.com/openshift/api/machine/v1beta1"
 
 	openshiftmonitoringv1alpha1 "github.com/openshift/api/monitoring/v1alpha1"
@@ -134,6 +136,8 @@ import (
 	openshiftoperatoringressv1 "github.com/openshift/api/operatoringress/v1"
 
 	openshiftosinv1 "github.com/openshift/api/osin/v1"
+
+	openshiftplatformv1alpha1 "github.com/openshift/api/platform/v1alpha1"
 
 	openshiftprojectv1 "github.com/openshift/api/project/v1"
 
@@ -269,6 +273,7 @@ func AddToScheme(scheme *runtime.Scheme) {
 	openshiftcloudnetworkv1.Install(scheme)
 
 	openshiftconfigv1.Install(scheme)
+	openshiftconfigv1alpha1.Install(scheme)
 
 	openshiftconsolev1.Install(scheme)
 	openshiftconsolev1alpha1.Install(scheme)
@@ -284,6 +289,7 @@ func AddToScheme(scheme *runtime.Scheme) {
 	// I am not adding the legacyconfig APIs at the moment, as I don't see them being necessary
 
 	openshiftmachinev1.Install(scheme)
+	openshiftmachinev1alpha1.Install(scheme)
 	openshiftmachinev1beta1.Install(scheme)
 
 	openshiftmonitoringv1alpha1.Install(scheme)
@@ -304,6 +310,8 @@ func AddToScheme(scheme *runtime.Scheme) {
 	openshiftoperatoringressv1.Install(scheme)
 
 	openshiftosinv1.Install(scheme)
+
+	openshiftplatformv1alpha1.Install(scheme)
 
 	openshiftprojectv1.Install(scheme)
 
